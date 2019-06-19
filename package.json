@@ -1,9 +1,9 @@
 {
-  "name": "slate-deep-table",
+  "name": "@pbackup/slate-deep-table",
   "description": "A Slate plugin to handle tables containing complex content.",
   "version": "0.9.0",
   "license": "Apache-2.0",
-  "repository": "git://github.com/jasonphillips/slate-deep-table.git",
+  "repository": "git://github.com/pbackup12345/slate-deep-table.git",
   "main": "./dist/index.js",
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
@@ -15,7 +15,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^10.0.0",
+    "babelify": "^8.0.0",
     "browserify": "^16.2.3",
     "eslint": "^5.16.0",
     "eslint-config-gitbook": "^5.0.1",
@@ -44,7 +44,7 @@
     "watch-example": "watchify ./example/main.js -o ./example/bundle.js  -t [ babelify --presets [ es2015 react ] --plugins transform-class-properties ] ",
     "serve-example": "http-server ./example/ -p 8080",
     "start": "npm run build-example; npm run serve-example",
-    "deploy-example": "npm run build-example; gh-pages -d ./example",
+    "deploy-example": "npm run build-example ; gh-pages -d ./example",
     "test": "./node_modules/.bin/mocha ./tests/*.js --require babel-core/register --reporter=list"
   },
   "keywords": [
