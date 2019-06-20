@@ -20,7 +20,7 @@ npm install slate-deep-table
 - Pressing <kbd>Shift+Tab</kbd>, move the select to previous cell
 - Permits nested block content within table cells
 - Optionally create headerless tables
-- Optionally resizable columns
+- Optionally resizable columns and table
 
 ### Compatibility
 
@@ -46,7 +46,8 @@ const plugins = [
 - `[typeRow: String]` — type for the rows `default: 'table_row'`
 - `[typeCell: String]` — type for the cells `default: 'table_cell'`
 - `[typeContent: String]` — type for the default blocks within cells `default: 'paragraph'`
-- `[resizable: Boolean]` — whether columns are resizable by dragging `default: 'false'`
+- `[columnResize: Boolean]` — whether columns are resizable by dragging `default: 'false'`
+- `[tableResize: Boolean]` — whether tables are resizable by dragging `default: 'false'`
 
 ### Queries and Commands
 

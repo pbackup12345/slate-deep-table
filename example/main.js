@@ -6,7 +6,7 @@ const { Editor } = SlateReact;
 const PluginDeepTable = require("../lib/");
 const initialValue = require("./value.js");
 
-const plugins = [PluginDeepTable()];
+const plugins = [PluginDeepTable({ columnResize: true, tableResize: true })];
 
 const renderBlock = (props, editor, next) => {
   switch (props.node.type) {
