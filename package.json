@@ -1,13 +1,14 @@
 {
   "name": "@pbackup/slate-deep-table",
   "description": "A Slate plugin to handle tables containing complex content.",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "Apache-2.0",
   "repository": "git://github.com/pbackup12345/slate-deep-table.git",
   "main": "./dist/index.js",
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
-    "slate-html-serializer": "^0.8.6"
+    "slate-html-serializer": "^0.8.6",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -20,6 +20,7 @@ npm install slate-deep-table
 - Pressing <kbd>Shift+Tab</kbd>, move the select to previous cell
 - Permits nested block content within table cells
 - Optionally create headerless tables
+- Optionally resizable columns
 
 ### Compatibility
 
@@ -28,11 +29,13 @@ Slate is a fast-moving library, so check the CHANGELOG for information on the cu
 ### Simple Usage
 
 ```js
-import DeepTable from 'slate-deep-table'
+import DeepTable from "slate-deep-table";
 
 const plugins = [
-  DeepTable({ /* options object here; see below */ })
-]
+  DeepTable({
+    /* options object here; see below */
+  })
+];
 
 // now instantiate your Slate Editor with these plugins, according to slate documentation
 ```
@@ -43,13 +46,14 @@ const plugins = [
 - `[typeRow: String]` — type for the rows `default: 'table_row'`
 - `[typeCell: String]` — type for the cells `default: 'table_cell'`
 - `[typeContent: String]` — type for the default blocks within cells `default: 'paragraph'`
+- `[resizable: Boolean]` — whether columns are resizable by dragging `default: 'false'`
 
 ### Queries and Commands
 
 `slate-deep-table` exports queries and commands that you can invoke on your `editor` instance:
 
 ```js
-// anywhere where 'editor' is passed as an argument, or using the react Component's ref, 
+// anywhere where 'editor' is passed as an argument, or using the react Component's ref,
 // you may directly invoke any of the exported functions below, e.g:
 const inATable = editor.isSelectionInTable();
 
@@ -58,7 +62,7 @@ if (!inATable) {
 }
 ```
 
-Check `example/main.js` for usage in a typical context. 
+Check `example/main.js` for usage in a typical context.
 
 #### `query isSelectionInTable()`
 
@@ -119,5 +123,3 @@ Move the selection by the given amount of columns and rows.
 `editor.toggleTableHeaders() => Editor`
 
 Toggles whether the table will render the first row as a header row (within a thead) or as a regular row.
-
-
