@@ -34,7 +34,7 @@ const value = (
           </td>
         </tr>
         <tr>
-          <td attributes={{ colspan: 2 }}>
+          <td attributes={{ colSpan: 2 }}>
             <p>August 28th</p>
           </td>
         </tr>
@@ -54,7 +54,7 @@ const value = (
 
       <table headless={true}>
         <tr>
-          <td colSpan={2}>
+          <td attributes={{ colSpan: 2 }}>
             <p>Gamma Quadrant</p>
             <p>- dominion, bad things</p>
           </td>

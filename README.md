@@ -7,6 +7,8 @@ A Slate plugin to handle tables with nested block content. Forked from the excel
 
 Demo: https://jasonphillips.github.io/slate-deep-table/
 
+(The demo currently only contains functionality up to v0.8)
+
 ### Install
 
 ```
@@ -72,7 +74,7 @@ You can pass on class, style and other attributes to each Slate node of the tabl
 
 - `className:` any class names to be passed on to the `<td>` or `<tr>` element
 - `style:` any style (as an object) to style the `<td>` or `<tr>` element
-- `attributes`: an object which will be passed on straight to the element and converted to attributes (you can also include colspan and colrow attributes for merged cells)
+- `attributes`: an object which will be passed on straight to the element and converted to attributes (you can also include colSpan and colRow attributes for merged cells). Whatch out that you have to follow React capitalizing conventions. So colRow and colSpan needs to be like so.
 
 ### Queries and Commands
 
@@ -98,9 +100,9 @@ Return true if current cursor position is inside a table.
 
 #### `command insertTable()`
 
-`editor.insertTable(columns: Number?, rows: Number?) => Editor`
+`editor.insertTable(columns: Number?, rows: Number?, properties: Object?) => Editor`
 
-Insert a new empty table.
+Insert a new empty table. Properties can contain table level options as above in object format.
 
 #### `command insertRow()`
 

@@ -34,7 +34,9 @@ class Example extends React.Component {
   };
 
   onInsertTable = () => {
-    this.onChange(this.editor.insertTable());
+    this.onChange(
+      this.editor.insertTable(2, 2, { wrapperClassName: "greentable" })
+    );
   };
 
   onInsertColumn = () => {
