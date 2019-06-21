@@ -1,7 +1,7 @@
 {
   "name": "@pbackup/slate-deep-table",
   "description": "A Slate plugin to handle tables containing complex content.",
-  "version": "0.9.4",
+  "version": "0.9.6",
   "license": "Apache-2.0",
   "repository": "git://github.com/pbackup12345/slate-deep-table.git",
   "main": "./dist/index.js",
