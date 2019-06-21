@@ -47,6 +47,15 @@
   position: relative;
 }
 
+#example table th {
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  padding: 0.5em;
+  position: relative;
+}
+
 /* for nested tables */
 #example table td > table {
   width: 100%;

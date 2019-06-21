@@ -16,6 +16,8 @@ const renderBlock = (props, editor, next) => {
       return <h1 {...props.attributes}>{props.children}</h1>;
     case "subheading":
       return <h2 {...props.attributes}>{props.children}</h2>;
+    case "subsubheading":
+      return <h3 {...props.attributes}>{props.children}</h3>;
   }
   return next();
 };
@@ -84,7 +86,7 @@ class Example extends React.Component {
   render() {
     const { value } = this.state;
     const isTable = this.editor && this.editor.isSelectionInTable(value);
-
+    console.log(initialValue);
     return (
       <div>
         {isTable ? this.renderTableToolbar() : this.renderNormalToolbar()}

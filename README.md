@@ -21,6 +21,7 @@ npm install slate-deep-table
 - Permits nested block content within table cells
 - Optionally create headerless tables
 - Optionally resizable columns and table
+- Table, row and cell can get attributes and be styled through the data property of the nodes
 
 ### Compatibility
 
@@ -48,6 +49,30 @@ const plugins = [
 - `[typeContent: String]` — type for the default blocks within cells `default: 'paragraph'`
 - `[columnResize: Boolean]` — whether columns are resizable by dragging `default: 'false'`
 - `[tableResize: Boolean]` — whether tables are resizable by dragging `default: 'false'`
+
+### Table level options
+
+You can pass on class, style and other attributes to each Slate node of the table by adding them as properties to the `data` property of the respective node.
+
+#### Table
+
+- `wrapperClassName:` any class names to be passed on to the `<div>` framing the table
+- `wrapperStyle:` any style (as an object) to style the wrapper `<div>`
+- `tableClassName:` any class names to be passed on to the `<table>`
+- `tableStyle:` any style (as an object) to style `<table>`
+- `theadClassName:` any class names to be passed on to the `<thead>` element
+- `theadStyle:` any style (as an object) to style `<thead>`
+- `tbodyClassName:` any class names to be passed on to the `<tbody>` element
+- `tbodyStyle:` any style (as an object) to style `<tbody>`
+
+- `tableResize:` (boolean) override the application level table resize setting for the given tabel
+- `columnResize:` (boolean) override the application level column resize setting for the given tabel
+
+#### Rows, cells
+
+- `className:` any class names to be passed on to the `<td>` or `<tr>` element
+- `style:` any style (as an object) to style the `<td>` or `<tr>` element
+- `attributes`: an object which will be passed on straight to the element and converted to attributes (you can also include colspan and colrow attributes for merged cells)
 
 ### Queries and Commands
 
