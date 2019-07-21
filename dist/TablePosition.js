@@ -169,8 +169,8 @@ var TablePosition = function (_Immutable$Record) {
 
   }], [{
     key: "create",
-    value: function create(value, startBlock, opts) {
-      var cell = value.document.getClosest(startBlock.key, function (p) {
+    value: function create(value, cell, opts) {
+      if (cell.type !== opts.typeCell) cell = value.document.getClosest(cell.key, function (p) {
         return p.type === opts.typeCell;
       });
 

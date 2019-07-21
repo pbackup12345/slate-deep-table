@@ -93,10 +93,14 @@ function EditTable(opts) {
   var renderBlock = makeRenderers(opts);
 
   function getPosition(editor) {
-    if (!TablePosition.isInCell(editor.value, editor.value.startBlock, opts)) {
+    var e = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+    var startBlock = e ? editor.findNode(e.target) : editor.value.startBlock;
+
+    if (!TablePosition.isInCell(editor.value, startBlock, opts)) {
       return null;
     }
-    return TablePosition.create(editor.value, editor.value.startBlock, opts);
+    return TablePosition.create(editor.value, startBlock, opts);
   }
 
   return {
