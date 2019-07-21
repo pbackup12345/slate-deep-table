@@ -170,13 +170,14 @@ var TablePosition = function (_Immutable$Record) {
   }], [{
     key: "create",
     value: function create(value, startBlock, opts) {
-      var cell = value.document.getClosest(startBlock.key, function (p) {
+      cell = value.document.getClosest(cell.key, function (p) {
         return p.type === opts.typeCell;
       });
-      var row = value.document.getClosest(startBlock.key, function (p) {
+
+      var row = value.document.getClosest(cell.key, function (p) {
         return p.type === opts.typeRow;
       });
-      var table = value.document.getClosest(startBlock.key, function (p) {
+      var table = value.document.getClosest(cell.key, function (p) {
         return p.type === opts.typeTable;
       });
 
