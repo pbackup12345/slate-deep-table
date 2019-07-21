@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.9.7] - 2019-07-21
+
+- Updated to include changes to the original repo:
+- added a useful query (`editor.getTablePosition()`) and documented it in the README.
+- now exports a function to obtain default serializer rules; see comment https://github.com/jasonphillips/slate-deep-table/issues/18#issuecomment-509439219
+
 ## [0.9.5] - 2019-06-21
 
 - Table, row and cell can now take attributes through slate "data" property

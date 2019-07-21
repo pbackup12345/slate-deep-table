@@ -37,7 +37,7 @@ import DeepTable from "slate-deep-table";
 const plugins = [
   DeepTable({
     /* options object here; see below */
-  })
+  }),
 ];
 
 // now instantiate your Slate Editor with these plugins, according to slate documentation
@@ -97,6 +97,20 @@ Check `example/main.js` for usage in a typical context.
 `editor.isSelectionInTable() => Boolean`
 
 Return true if current cursor position is inside a table.
+
+#### `query getTablePosition()`
+
+`editor.getTablePosition() => null || TablePosition`
+
+Returns null if cursor is not in a table, else returns an object you can use to query the current cell and row location:
+
+```js
+const position = editor.getTablePosition();
+position.getRowIndex(); // returns row id (0-indexed)
+position.getColumnIndex(); // return column index (0-indexed)
+position.getWidth(); // returns count of columns
+position.getHeight(); // returns count of rows
+```
 
 #### `command insertTable()`
 
