@@ -105,7 +105,7 @@ var Divider = function Divider(props) {
       editor.insertColumn(0, e);
     } else {
       var position = editor.getTablePosition();
-      editor.insertColumn(position.getColumnIndex(), e);
+      editor.insertColumn(position.getColumnIndex() + 1, e);
     }
   };
 
@@ -122,7 +122,12 @@ var Divider = function Divider(props) {
       return;
     }
     var position = editor.getTablePosition();
-    editor.removeColumn(position.getColumnIndex(), e);
+
+    if (props.first) {
+      editor.removeColumn(0, e);
+    } else {
+      editor.removeColumn(position.getColumnIndex() + 1, e);
+    }
     if (props.first) {
       var firstCell = editor.value.document.getNode(table.key).nodes.get(0).nodes.get(0);
       editor.setNodeByKey(firstCell.key, {
