@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var style = {
   top: 0,
   right: -1,
-  width: "5px",
+  width: "8px",
   position: "absolute",
   cursor: "col-resize",
   userSelect: "none",
@@ -26,7 +26,7 @@ var style = {
 };
 
 var spanStyle = {
-  top: -15,
+  top: "-5px",
   right: -5,
   position: "absolute",
   userSelect: "none",
@@ -67,12 +67,16 @@ var Divider = function Divider(props) {
   var onMouseOver = function onMouseOver(e) {
     e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
     e.target.style.borderRight = "2px solid #0000ff";
-    e.target.nextElementSibling.style.opacity = 1;
+    if (e.target.nextElementSibling) {
+      e.target.nextElementSibling.style.opacity = 1;
+    }
   };
 
   var onMouseOut = function onMouseOut(e) {
     e.target.style.borderRight = "";
-    e.target.nextElementSibling.style.opacity = 0;
+    if (e.target.nextElementSibling) {
+      e.target.nextElementSibling.style.opacity = 0;
+    }
   };
 
   var onMouseMove = function onMouseMove(curCol, nxtCol, pageX, curColWidth, nxtColWidth, table) {
@@ -108,7 +112,7 @@ var Divider = function Divider(props) {
     _react2.default.createElement(
       "div",
       { contentEditable: false, onClick: onClick, style: spanStyle },
-      _react2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 10 })
+      _react2.default.createElement(_core.Icon, { icon: "add", color: "green", iconSize: 10 })
     )
   );
 };
