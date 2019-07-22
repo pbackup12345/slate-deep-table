@@ -65,7 +65,7 @@ var Divider = function Divider(props) {
   };
 
   var onClick = function onClick(e) {
-    var editor = (0, _reactn.getGlobal)().editor;
+    var editor = props.editor;
     var position = editor.getTablePosition(e);
     editor.insertRow(position.getColumnIndex());
   };
