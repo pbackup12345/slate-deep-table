@@ -32,7 +32,9 @@ var spanStyle = {
   userSelect: "none",
   zIndex: 3,
   padding: "0px",
-  height: "10px"
+  height: "10px",
+  opacity: 0,
+  transition: "all 0.2s"
 };
 
 var Divider = function Divider(props) {
@@ -65,10 +67,12 @@ var Divider = function Divider(props) {
   var onMouseOver = function onMouseOver(e) {
     e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
     e.target.style.borderRight = "2px solid #0000ff";
+    e.target.nextElementSibling.style.opacity = 1;
   };
 
   var onMouseOut = function onMouseOut(e) {
     e.target.style.borderRight = "";
+    e.target.nextElementSibling.style.opacity = 0;
   };
 
   var onMouseMove = function onMouseMove(curCol, nxtCol, pageX, curColWidth, nxtColWidth, table) {
