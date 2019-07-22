@@ -111,10 +111,14 @@ var Divider = function Divider(props) {
     var table = editor.value.document.getClosest(editor.value.startBlock.key, function (item) {
       return item.type === "table";
     });
+    if (table.nodes.get(0).nodes.size === 1) {
+      editor.removeNodeByKey(table.key);
+      return;
+    }
     var position = editor.getTablePosition();
     editor.removeColumn(position.getColumnIndex(), e);
     if (props.first) {
-      var firstCell = table.nodes.get(0).nodes.get(0);
+      var firstCell = editor.value.document.getNode(table.key).nodes.get(0).nodes.get(0);
       editor.setNodeByKey(firstCell.key, {
         data: firstCell.data.set("toggle", !!!firstCell.data.get("toggle"))
       });
