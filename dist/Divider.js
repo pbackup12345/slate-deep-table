@@ -67,6 +67,10 @@ var Divider = function Divider(props) {
     style.left = -1;
   }
 
+  if (props.last) {
+    spanMinusStyle.display = none;
+  }
+
   var divRef = (0, _reactn.useRef)();
   (0, _reactn.useLayoutEffect)(function () {
     divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
@@ -196,7 +200,7 @@ var Divider = function Divider(props) {
         onMouseOut: onMouseOut },
       _reactn2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 16 })
     ),
-    props.last ? "" : _reactn2.default.createElement(
+    _reactn2.default.createElement(
       "div",
       {
         contentEditable: false,
