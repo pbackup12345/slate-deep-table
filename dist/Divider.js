@@ -68,7 +68,7 @@ var Divider = function Divider(props) {
   }
 
   if (props.last) {
-    spanMinusStyle.display = none;
+    spanMinusStyle.display = "none";
   }
 
   var divRef = (0, _reactn.useRef)();
