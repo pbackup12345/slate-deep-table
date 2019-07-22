@@ -22,7 +22,7 @@ function insertColumn(opts, editor, at) {
   var e = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
   var value = editor.value;
 
-  var startBlock = e ? findNode(e.target) : value.startBlock;
+  var startBlock = e ? findNode(e.target, editor) : value.startBlock;
 
   var pos = TablePosition.create(value, startBlock, opts);
   var table = pos.table;
