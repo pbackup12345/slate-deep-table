@@ -8,6 +8,8 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _core = require("@blueprintjs/core");
+
 var _v = require("uuid/v4");
 
 var _v2 = _interopRequireDefault(_v);
@@ -24,16 +26,17 @@ var style = {
   position: "absolute",
   cursor: "col-resize",
   userSelect: "none",
-  height: "50px",
+  height: "10px",
   zIndex: 2
 };
 
 var spanStyle = {
-  top: 0,
-  right: -3,
+  top: -5,
+  right: -5,
   position: "absolute",
   userSelect: "none",
-  zIndex: 3
+  zIndex: 3,
+  height: "10px"
 };
 
 var Divider = function Divider(props) {
@@ -97,9 +100,9 @@ var Divider = function Divider(props) {
       onMouseOver: onMouseOver,
       onMouseOut: onMouseOut }),
     _react2.default.createElement(
-      "span",
-      { onClick: onClick, style: spanStyle },
-      "p"
+      "div",
+      { contentEditable: false, onClick: onClick, style: spanStyle },
+      _react2.default.createElement(_core.Icon, { icon: "add", iconSize: 10 })
     )
   );
 };
