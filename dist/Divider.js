@@ -10,6 +10,8 @@ var _reactn2 = _interopRequireDefault(_reactn);
 
 var _core = require("@blueprintjs/core");
 
+var _slateReact = require("slate-react");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import React, {withGlobal} from "reactn"
@@ -66,9 +68,10 @@ var Divider = function Divider(props) {
 
   var onClick = function onClick(e) {
     var editor = props.editor;
+    editor.moveToRangeOfNode((0, _slateReact.findNode)(e));
     var position = editor.getTablePosition(e);
     console.log(position);
-    editor.insertRow(position.getColumnIndex(), e);
+    editor.insertColumn(position.getColumnIndex(), e);
   };
 
   var onMouseOver = function onMouseOver(e) {
