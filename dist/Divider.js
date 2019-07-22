@@ -10,13 +10,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _core = require("@blueprintjs/core");
 
-var _v = require("uuid/v4");
-
-var _v2 = _interopRequireDefault(_v);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// uuidv4()
 //import React, {withGlobal} from "reactn"
 
 var style = {
@@ -41,7 +36,7 @@ var spanStyle = {
 };
 
 var Divider = function Divider(props) {
-  var divRef = useRef();
+  var divRef = (0, _react.useRef)();
   (0, _react.useLayoutEffect)(function () {
     return divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
   }, []);
