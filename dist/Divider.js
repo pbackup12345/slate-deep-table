@@ -26,20 +26,26 @@ var style = {
   position: "absolute",
   cursor: "col-resize",
   userSelect: "none",
-  height: "10px",
+  height: "50px",
   zIndex: 2
 };
 
 var spanStyle = {
-  top: -5,
+  top: -15,
   right: -5,
   position: "absolute",
   userSelect: "none",
   zIndex: 3,
+  padding: "0px",
   height: "10px"
 };
 
 var Divider = function Divider(props) {
+  var divRef = useRef();
+  (0, _react.useLayoutEffect)(function () {
+    return divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+  }, []);
+
   var onMouseDown = function onMouseDown(e) {
     e.persist();
     e.preventDefault();
@@ -95,6 +101,7 @@ var Divider = function Divider(props) {
     _react2.default.Fragment,
     null,
     _react2.default.createElement("div", {
+      ref: divRef,
       style: style,
       onMouseDown: onMouseDown,
       onMouseOver: onMouseOver,
@@ -102,7 +109,7 @@ var Divider = function Divider(props) {
     _react2.default.createElement(
       "div",
       { contentEditable: false, onClick: onClick, style: spanStyle },
-      _react2.default.createElement(_core.Icon, { icon: "add", iconSize: 10 })
+      _react2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 10 })
     )
   );
 };
