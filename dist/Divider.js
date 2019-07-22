@@ -4,9 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = require("react");
+var _reactn = require("reactn");
 
-var _react2 = _interopRequireDefault(_react);
+var _reactn2 = _interopRequireDefault(_reactn);
 
 var _core = require("@blueprintjs/core");
 
@@ -42,8 +42,8 @@ var spanStyle = {
 };
 
 var Divider = function Divider(props) {
-  var divRef = (0, _react.useRef)();
-  (0, _react.useLayoutEffect)(function () {
+  var divRef = (0, _reactn.useRef)();
+  (0, _reactn.useLayoutEffect)(function () {
     divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
   }, []);
 
@@ -65,6 +65,7 @@ var Divider = function Divider(props) {
   };
 
   var onClick = function onClick(e) {
+    var editor = (0, _reactn.getGlobal)().editor;
     var position = editor.getTablePosition(e);
     editor.insertRow(position.getColumnIndex());
   };
@@ -112,16 +113,16 @@ var Divider = function Divider(props) {
     };
   };
 
-  return _react2.default.createElement(
-    _react2.default.Fragment,
+  return _reactn2.default.createElement(
+    _reactn2.default.Fragment,
     null,
-    _react2.default.createElement("div", {
+    _reactn2.default.createElement("div", {
       ref: divRef,
       style: style,
       onMouseDown: onMouseDown,
       onMouseOver: onMouseOver,
       onMouseOut: onMouseOut }),
-    _react2.default.createElement(
+    _reactn2.default.createElement(
       "div",
       {
         contentEditable: false,
@@ -129,7 +130,7 @@ var Divider = function Divider(props) {
         style: spanStyle,
         onMouseOver: onMouseOver,
         onMouseOut: onMouseOut },
-      _react2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 16 })
+      _reactn2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 16 })
     )
   );
 };

@@ -9,6 +9,7 @@
     "@blueprintjs/core": "^3.17.1",
     "@blueprintjs/icons": "^3.9.1",
     "@emotion/core": "^10.0.10",
+    "reactn": "^2.1.6",
     "slate-html-serializer": "^0.8.6",
     "uuid": "^3.3.2"
   },
