@@ -152,7 +152,7 @@ var makeRenderers = function makeRenderers() {
               }, attributes, props.attributes),
               !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
-              React.createElement(_Divider2.default, { editor: props.editor, node: props.node, last: nextCell })
+              React.createElement(_Divider2.default, { editor: props.editor, node: props.node, last: !nextCell })
             )
           )
         );
