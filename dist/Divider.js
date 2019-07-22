@@ -67,7 +67,8 @@ var Divider = function Divider(props) {
   var onClick = function onClick(e) {
     var editor = props.editor;
     var position = editor.getTablePosition(e);
-    editor.insertRow(position.getColumnIndex());
+    console.log(position);
+    editor.insertRow(position.getColumnIndex(), e);
   };
 
   var onMouseOver = function onMouseOver(e) {
