@@ -108,8 +108,17 @@ var Divider = function Divider(props) {
   var onClickRemove = function onClickRemove(e) {
     var editor = props.editor;
     editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget, editor));
+    var table = editor.value.document.getClosest(editor.value.startBlock.key, function (item) {
+      return item.type === "table";
+    });
     var position = editor.getTablePosition();
     editor.removeColumn(position.getColumnIndex(), e);
+    if (props.first) {
+      var firstCell = table.nodes.get(0).nodes.get(0);
+      editor.setNodeByKey(firstCell.key, {
+        data: firstCell.data.set("toggle", !!!firstCell.data.get("toggle"))
+      });
+    }
   };
 
   var onMouseOver = function onMouseOver(e) {
