@@ -65,17 +65,24 @@ var Divider = function Divider(props) {
   };
 
   var onMouseOver = function onMouseOver(e) {
-    e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
-    e.target.style.borderRight = "2px solid #0000ff";
     if (e.target.nextElementSibling) {
+      e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+      e.target.style.borderRight = "2px solid #0000ff";
       e.target.nextElementSibling.style.opacity = 1;
+    } else {
+      e.target.previousElementSibling.style.height = e.target.previousElementSibling.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+      e.target.previousElementSibling.style.borderRight = "2px solid #0000ff";
+      e.target.style.opacity = 1;
     }
   };
 
   var onMouseOut = function onMouseOut(e) {
-    e.target.style.borderRight = "";
     if (e.target.nextElementSibling) {
+      e.target.style.borderRight = "";
       e.target.nextElementSibling.style.opacity = 0;
+    } else {
+      e.target.previousElementSibling.style.borderRight = "";
+      e.target.style.opacity = 0;
     }
   };
 
@@ -111,7 +118,12 @@ var Divider = function Divider(props) {
       onMouseOut: onMouseOut }),
     _react2.default.createElement(
       "div",
-      { contentEditable: false, onClick: onClick, style: spanStyle },
+      {
+        contentEditable: false,
+        onClick: onClick,
+        style: spanStyle,
+        onMouseOver: onMouseOver,
+        onMouseOut: onMouseOut },
       _react2.default.createElement(_core.Icon, { icon: "add", color: "green", iconSize: 10 })
     )
   );
