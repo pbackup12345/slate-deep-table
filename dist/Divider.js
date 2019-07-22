@@ -46,6 +46,10 @@ var Divider = function Divider(props) {
     document.addEventListener("mousemove", newMouseMove);
   };
 
+  var onClick = function onClick(e) {
+    console.log("huba");
+  };
+
   var onMouseOver = function onMouseOver(e) {
     e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
     e.target.style.borderRight = "2px solid #0000ff";
@@ -83,7 +87,8 @@ var Divider = function Divider(props) {
       style: style,
       onMouseDown: onMouseDown,
       onMouseOver: onMouseOver,
-      onMouseOut: onMouseOut
+      onMouseOut: onMouseOut,
+      onClick: onClick
     })
   );
 };
