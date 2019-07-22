@@ -33,7 +33,8 @@ var spanStyle = {
   right: -3,
   position: "absolute",
   userSelect: "none",
-  zIndex: 3
+  zIndex: 3,
+  height: height
 };
 
 var Divider = function Divider(props) {
@@ -91,18 +92,15 @@ var Divider = function Divider(props) {
   return _react2.default.createElement(
     _react2.default.Fragment,
     null,
+    _react2.default.createElement("div", {
+      style: style,
+      onMouseDown: onMouseDown,
+      onMouseOver: onMouseOver,
+      onMouseOut: onMouseOut }),
     _react2.default.createElement(
-      "div",
-      {
-        style: style,
-        onMouseDown: onMouseDown,
-        onMouseOver: onMouseOver,
-        onMouseOut: onMouseOut },
-      _react2.default.createElement(
-        "span",
-        { onClick: onClick, style: spanStyle },
-        "p"
-      )
+      "span",
+      { onClick: onClick, style: spanStyle },
+      "p"
     )
   );
 };
