@@ -65,24 +65,24 @@ var Divider = function Divider(props) {
   };
 
   var onMouseOver = function onMouseOver(e) {
-    if (e.target.nextElementSibling) {
-      e.target.style.height = e.target.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
-      e.target.style.borderRight = "2px solid #0000ff";
-      e.target.nextElementSibling.style.opacity = 1;
+    if (e.currentTarget.nextElementSibling) {
+      e.currentTarget.style.height = e.currentTarget.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+      e.currentTarget.style.borderRight = "2px solid #0000ff";
+      e.currentTarget.nextElementSibling.style.opacity = 1;
     } else {
-      e.target.previousElementSibling.style.height = e.target.previousElementSibling.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
-      e.target.previousElementSibling.style.borderRight = "2px solid #0000ff";
-      e.target.style.opacity = 1;
+      e.currentTarget.previousElementSibling.style.height = e.currentTarget.previousElementSibling.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+      e.currentTarget.previousElementSibling.style.borderRight = "2px solid #0000ff";
+      e.currentTarget.style.opacity = 1;
     }
   };
 
   var onMouseOut = function onMouseOut(e) {
-    if (e.target.nextElementSibling) {
-      e.target.style.borderRight = "";
-      e.target.nextElementSibling.style.opacity = 0;
+    if (e.currentTarget.nextElementSibling) {
+      e.currentTarget.style.borderRight = "";
+      e.currentTarget.nextElementSibling.style.opacity = 0;
     } else {
-      e.target.previousElementSibling.style.borderRight = "";
-      e.target.style.opacity = 0;
+      e.currentTarget.previousElementSibling.style.borderRight = "";
+      e.currentTarget.style.opacity = 0;
     }
   };
 
