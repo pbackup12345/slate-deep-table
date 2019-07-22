@@ -68,8 +68,8 @@ var Divider = function Divider(props) {
 
   var onClick = function onClick(e) {
     var editor = props.editor;
-    editor.moveToRangeOfNode((0, _slateReact.findNode)(e));
-    var position = editor.getTablePosition(e);
+    editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget));
+    var position = editor.getTablePosition();
     console.log(position);
     editor.insertColumn(position.getColumnIndex(), e);
   };
