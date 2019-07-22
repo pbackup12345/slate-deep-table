@@ -27,8 +27,24 @@ var style = {
   zIndex: 2
 };
 
-var spanStyle = {
+var spanPlusStyle = {
   top: "0px",
+  right: "-8px",
+  position: "absolute",
+  userSelect: "none",
+  zIndex: 3,
+  padding: "0px",
+  height: "16px",
+  width: "16px",
+  opacity: 0,
+  transition: "all 0.2s",
+  background: "white",
+  borderRadius: "16px",
+  lineHeight: 1
+};
+
+var spanMinusStyle = {
+  bottom: "0px",
   right: "-8px",
   position: "absolute",
   userSelect: "none",
@@ -66,34 +82,32 @@ var Divider = function Divider(props) {
     document.addEventListener("mousemove", newMouseMove);
   };
 
-  var onClick = function onClick(e) {
+  var onClickAdd = function onClickAdd(e) {
     var editor = props.editor;
-    editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget));
+    editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget, editor));
     var position = editor.getTablePosition();
     console.log(position);
     editor.insertColumn(position.getColumnIndex(), e);
   };
 
+  var onClickRemove = function onClickRemove(e) {
+    var editor = props.editor;
+    editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget, editor));
+    var position = editor.getTablePosition();
+    editor.removeColumn(position.getColumnIndex(), e);
+  };
+
   var onMouseOver = function onMouseOver(e) {
-    if (e.currentTarget.nextElementSibling) {
-      e.currentTarget.style.height = e.currentTarget.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
-      e.currentTarget.style.borderRight = "2px solid #0000ff";
-      e.currentTarget.nextElementSibling.style.opacity = 1;
-    } else {
-      e.currentTarget.previousElementSibling.style.height = e.currentTarget.previousElementSibling.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
-      e.currentTarget.previousElementSibling.style.borderRight = "2px solid #0000ff";
-      e.currentTarget.style.opacity = 1;
-    }
+    divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
+    divRef.current.style.borderRight = "2px solid #0000ff";
+    divRef.current.nextElementSibling.nextElementSibling.style.opacity = 1;
+    divRef.current.nextElementSibling.style.opacity = 1;
   };
 
   var onMouseOut = function onMouseOut(e) {
-    if (e.currentTarget.nextElementSibling) {
-      e.currentTarget.style.borderRight = "";
-      e.currentTarget.nextElementSibling.style.opacity = 0;
-    } else {
-      e.currentTarget.previousElementSibling.style.borderRight = "";
-      e.currentTarget.style.opacity = 0;
-    }
+    divRef.current.style.borderRight = "";
+    divRef.current.nextElementSibling.style.opacity = 0;
+    divRef.current.nextElementSibling.nextElementSibling.style.opacity = 0;
   };
 
   var onMouseMove = function onMouseMove(curCol, nxtCol, pageX, curColWidth, nxtColWidth, table) {
@@ -130,11 +144,21 @@ var Divider = function Divider(props) {
       "div",
       {
         contentEditable: false,
-        onClick: onClick,
-        style: spanStyle,
+        onClick: onClickAdd,
+        style: spanPlusStyle,
         onMouseOver: onMouseOver,
         onMouseOut: onMouseOut },
       _reactn2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 16 })
+    ),
+    _reactn2.default.createElement(
+      "div",
+      {
+        contentEditable: false,
+        onClick: onClickRemove,
+        style: spanMinusStyle,
+        onMouseOver: onMouseOver,
+        onMouseOut: onMouseOut },
+      _reactn2.default.createElement(_core.Icon, { icon: "remove", color: "red", iconSize: 16 })
     )
   );
 };
