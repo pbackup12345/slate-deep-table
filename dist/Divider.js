@@ -16,18 +16,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import React, {withGlobal} from "reactn"
 
-var style = {
-  top: 0,
-  right: -1,
-  width: "8px",
-  position: "absolute",
-  cursor: "col-resize",
-  userSelect: "none",
-  height: "50px",
-  zIndex: 2
-};
-
 var Divider = function Divider(props) {
+  var style = {
+    top: 0,
+    right: -1,
+    width: "8px",
+    position: "absolute",
+    cursor: "col-resize",
+    userSelect: "none",
+    height: "50px",
+    zIndex: 2
+  };
   var spanPlusStyle = {
     top: "0px",
     right: "-8px",
@@ -64,6 +63,8 @@ var Divider = function Divider(props) {
     spanPlusStyle.left = "-8px";
     spanMinusStyle.right = undefined;
     spanMinusStyle.left = "-8px";
+    style.right = undefined;
+    style.left = -1;
   }
 
   var divRef = (0, _reactn.useRef)();
