@@ -38,7 +38,7 @@ var spanStyle = {
   transition: "all 0.2s",
   background: "white",
   borderRadius: "16px",
-  lineHeight: "unset"
+  lineHeight: 1
 };
 
 var Divider = function Divider(props) {
@@ -65,7 +65,8 @@ var Divider = function Divider(props) {
   };
 
   var onClick = function onClick(e) {
-    console.log("huba");
+    var position = editor.getTablePosition(e);
+    editor.insertRow(position.getColumnIndex());
   };
 
   var onMouseOver = function onMouseOver(e) {
