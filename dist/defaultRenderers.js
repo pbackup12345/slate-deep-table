@@ -132,7 +132,7 @@ var makeRenderers = function makeRenderers() {
                 className: properties.className,
                 style: properties.style
               }, attributes, props.attributes),
-              !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
+              !prevRow && !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
               !prevRow ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node }) : ""
             )
@@ -150,6 +150,7 @@ var makeRenderers = function makeRenderers() {
                 colSpan: properties.colSpan,
                 rowSpan: properties.rowSpan
               }, attributes, props.attributes),
+              !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
               React.createElement(_Divider2.default, { editor: props.editor, node: props.node })
             )

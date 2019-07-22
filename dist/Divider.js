@@ -27,39 +27,38 @@ var style = {
   zIndex: 2
 };
 
-var spanPlusStyle = {
-  top: "0px",
-  right: "-8px",
-  position: "absolute",
-  userSelect: "none",
-  zIndex: 3,
-  padding: "0px",
-  height: "16px",
-  width: "16px",
-  opacity: 0,
-  transition: "all 0.2s",
-  background: "white",
-  borderRadius: "16px",
-  lineHeight: 1
-};
-
-var spanMinusStyle = {
-  bottom: "0px",
-  right: "-8px",
-  position: "absolute",
-  userSelect: "none",
-  zIndex: 3,
-  padding: "0px",
-  height: "16px",
-  width: "16px",
-  opacity: 0,
-  transition: "all 0.2s",
-  background: "white",
-  borderRadius: "16px",
-  lineHeight: 1
-};
-
 var Divider = function Divider(props) {
+  var spanPlusStyle = {
+    top: "0px",
+    right: "-8px",
+    position: "absolute",
+    userSelect: "none",
+    zIndex: 3,
+    padding: "0px",
+    height: "16px",
+    width: "16px",
+    opacity: 0,
+    transition: "all 0.2s",
+    background: "white",
+    borderRadius: "16px",
+    lineHeight: 1
+  };
+  var spanMinusStyle = {
+    bottom: "0px",
+    right: "-8px",
+    position: "absolute",
+    userSelect: "none",
+    zIndex: 3,
+    padding: "0px",
+    height: "16px",
+    width: "16px",
+    opacity: 0,
+    transition: "all 0.2s",
+    background: "white",
+    borderRadius: "16px",
+    lineHeight: 1
+  };
+
   if (props.first) {
     spanPlusStyle.right = undefined;
     spanPlusStyle.left = "-8px";
