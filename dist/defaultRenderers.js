@@ -80,9 +80,7 @@ var makeRenderers = function makeRenderers() {
             className: properties.wrapperClassName },
           React.createElement(
             "table",
-            {
-              className: properties.tableClassName,
-              style: properties.tableStyle || {} },
+            { className: properties.tableClassName, style: properties.tableStyle || {} },
             header && React.createElement(
               "thead",
               _extends({
@@ -107,10 +105,7 @@ var makeRenderers = function makeRenderers() {
 
         return React.createElement(
           "tr",
-          _extends({
-            className: properties.className,
-            style: properties.style
-          }, props.attributes),
+          _extends({ className: properties.className, style: properties.style }, props.attributes),
           props.children
         );
       case opts.typeCell:
@@ -118,6 +113,8 @@ var makeRenderers = function makeRenderers() {
         var attributes = props.node.data.get("attributes") || {};
         var row = props.editor.value.document.getParent(props.node.key);
         var prevRow = props.editor.value.document.getPreviousSibling(row.key);
+        var prevCell = props.editor.value.document.getPreviousSibling(props.node.key);
+        var nextCell = props.editor.value.document.getNextSibling(props.node.key);
         var table = props.editor.value.document.getParent(row.key);
         var headerless = table.data.get("headless");
         return React.createElement(
@@ -135,8 +132,9 @@ var makeRenderers = function makeRenderers() {
                 className: properties.className,
                 style: properties.style
               }, attributes, props.attributes),
+              !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
-              (opts.columnResize || table.data.get("columnResize")) && !prevRow ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node }) : ""
+              !prevRow ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node }) : ""
             )
           ) : React.createElement(
             React.Fragment,
@@ -153,7 +151,7 @@ var makeRenderers = function makeRenderers() {
                 rowSpan: properties.rowSpan
               }, attributes, props.attributes),
               props.children,
-              opts.columnResize || table.data.get("columnResize") ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node }) : ""
+              React.createElement(_Divider2.default, { editor: props.editor, node: props.node })
             )
           )
         );

@@ -60,6 +60,13 @@ var spanMinusStyle = {
 };
 
 var Divider = function Divider(props) {
+  if (props.first) {
+    spanPlusStyle.right = undefined;
+    spanPlusStyle.left = "-8px";
+    spanMinusStyle.right = undefined;
+    spanMinusStyle.left = "-8px";
+  }
+
   var divRef = (0, _reactn.useRef)();
   (0, _reactn.useLayoutEffect)(function () {
     divRef.current.style.height = divRef.current.parentElement.parentElement.parentElement.parentElement.offsetHeight + "px";
@@ -69,6 +76,10 @@ var Divider = function Divider(props) {
     e.persist();
     e.preventDefault();
     e.stopPropagation();
+    if (props.first) {
+      return;
+    }
+
     var thisElement = e.target.parentElement;
     var nextElement = thisElement.nextElementSibling;
 
@@ -85,9 +96,13 @@ var Divider = function Divider(props) {
   var onClickAdd = function onClickAdd(e) {
     var editor = props.editor;
     editor.moveToRangeOfNode((0, _slateReact.findNode)(e.currentTarget, editor));
-    var position = editor.getTablePosition();
-    console.log(position);
-    editor.insertColumn(position.getColumnIndex(), e);
+
+    if (props.first) {
+      editor.insertColumn(0, e);
+    } else {
+      var position = editor.getTablePosition();
+      editor.insertColumn(position.getColumnIndex(), e);
+    }
   };
 
   var onClickRemove = function onClickRemove(e) {
@@ -112,6 +127,10 @@ var Divider = function Divider(props) {
 
   var onMouseMove = function onMouseMove(curCol, nxtCol, pageX, curColWidth, nxtColWidth, table) {
     return function (e) {
+      if (props.first) {
+        return;
+      }
+
       if (curCol) {
         var diffX = e.pageX - pageX;
 
@@ -125,6 +144,10 @@ var Divider = function Divider(props) {
 
   var onMouseUp = function onMouseUp(newMouseMove, newMouseUp, divider) {
     return function (e) {
+      if (props.first) {
+        return;
+      }
+
       document.removeEventListener("mousemove", newMouseMove);
       document.removeEventListener("mouseup", newMouseUp);
       divider.style.width = "5px";
