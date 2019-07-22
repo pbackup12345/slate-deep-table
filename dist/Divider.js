@@ -113,6 +113,8 @@ var Divider = function Divider(props) {
     });
     if (table.nodes.get(0).nodes.size === 1) {
       editor.removeNodeByKey(table.key);
+      e.stopPropagation();
+      e.preventDefault();
       return;
     }
     var position = editor.getTablePosition();
@@ -194,7 +196,7 @@ var Divider = function Divider(props) {
         onMouseOut: onMouseOut },
       _reactn2.default.createElement(_core.Icon, { icon: "add", color: "blue", iconSize: 16 })
     ),
-    _reactn2.default.createElement(
+    props.last ? "" : _reactn2.default.createElement(
       "div",
       {
         contentEditable: false,

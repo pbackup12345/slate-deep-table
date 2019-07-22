@@ -113,8 +113,8 @@ var makeRenderers = function makeRenderers() {
         var attributes = props.node.data.get("attributes") || {};
         var row = props.editor.value.document.getParent(props.node.key);
         var prevRow = props.editor.value.document.getPreviousSibling(row.key);
-        var prevCell = props.editor.value.document.getPreviousSibling(props.node.key);
-        var nextCell = props.editor.value.document.getNextSibling(props.node.key);
+        var prevCell = !!props.editor.value.document.getPreviousSibling(props.node.key);
+        var nextCell = !!props.editor.value.document.getNextSibling(props.node.key);
         var table = props.editor.value.document.getParent(row.key);
         var headerless = table.data.get("headless");
         return React.createElement(
@@ -134,7 +134,7 @@ var makeRenderers = function makeRenderers() {
               }, attributes, props.attributes),
               !prevRow && !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
-              !prevRow ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node }) : ""
+              !prevRow ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, last: nextCell }) : ""
             )
           ) : React.createElement(
             React.Fragment,
@@ -152,7 +152,7 @@ var makeRenderers = function makeRenderers() {
               }, attributes, props.attributes),
               !prevCell ? React.createElement(_Divider2.default, { editor: props.editor, node: props.node, first: true }) : "",
               props.children,
-              React.createElement(_Divider2.default, { editor: props.editor, node: props.node })
+              React.createElement(_Divider2.default, { editor: props.editor, node: props.node, last: nextCell })
             )
           )
         );
