@@ -33,8 +33,7 @@ var spanStyle = {
   right: -3,
   position: "absolute",
   userSelect: "none",
-  zIndex: 3,
-  height: height
+  zIndex: 3
 };
 
 var Divider = function Divider(props) {
